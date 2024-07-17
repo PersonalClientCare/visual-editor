@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:i18n_extension/i18n_widget.dart';
+import 'package:i18n_extension/i18n_extension.dart';
 
 import '../../controller/controllers/editor-controller.dart';
 import '../../document/models/attributes/attributes-aliases.model.dart';
@@ -352,7 +352,8 @@ class EditorToolbar extends StatelessWidget implements PreferredSizeWidget {
             iconTheme: iconTheme,
             dialogTheme: dialogTheme,
           ),
-        if ((onImagePickCallback != null || onVideoPickCallback != null) && showCameraButton)
+        if ((onImagePickCallback != null || onVideoPickCallback != null) &&
+            showCameraButton)
           CameraButton(
             icon: Icons.photo_camera,
             iconSize: toolbarIconSize,
@@ -367,7 +368,11 @@ class EditorToolbar extends StatelessWidget implements PreferredSizeWidget {
           ),
         if (showDividers &&
             isButtonGroupShown[0] &&
-            (isButtonGroupShown[1] || isButtonGroupShown[2] || isButtonGroupShown[3] || isButtonGroupShown[4] || isButtonGroupShown[5]))
+            (isButtonGroupShown[1] ||
+                isButtonGroupShown[2] ||
+                isButtonGroupShown[3] ||
+                isButtonGroupShown[4] ||
+                isButtonGroupShown[5]))
           _divider(),
         if (showAlignmentButtons)
           SelectAlignmentButtons(
@@ -389,9 +394,20 @@ class EditorToolbar extends StatelessWidget implements PreferredSizeWidget {
             iconSize: toolbarIconSize,
             iconTheme: iconTheme,
           ),
-        if (showDividers && isButtonGroupShown[1] && (isButtonGroupShown[2] || isButtonGroupShown[3] || isButtonGroupShown[4] || isButtonGroupShown[5]))
+        if (showDividers &&
+            isButtonGroupShown[1] &&
+            (isButtonGroupShown[2] ||
+                isButtonGroupShown[3] ||
+                isButtonGroupShown[4] ||
+                isButtonGroupShown[5]))
           _divider(),
-        if (showDividers && showHeaderStyle && isButtonGroupShown[2] && (isButtonGroupShown[3] || isButtonGroupShown[4] || isButtonGroupShown[5])) _divider(),
+        if (showDividers &&
+            showHeaderStyle &&
+            isButtonGroupShown[2] &&
+            (isButtonGroupShown[3] ||
+                isButtonGroupShown[4] ||
+                isButtonGroupShown[5]))
+          _divider(),
         if (showListNumbers)
           ToggleStyleButton(
             buttonsSpacing: toolbarSectionSpacing,
@@ -428,7 +444,10 @@ class EditorToolbar extends StatelessWidget implements PreferredSizeWidget {
             iconSize: toolbarIconSize,
             iconTheme: iconTheme,
           ),
-        if (showDividers && isButtonGroupShown[3] && (isButtonGroupShown[4] || isButtonGroupShown[5])) _divider(),
+        if (showDividers &&
+            isButtonGroupShown[3] &&
+            (isButtonGroupShown[4] || isButtonGroupShown[5]))
+          _divider(),
         if (showQuote)
           ToggleStyleButton(
             attribute: AttributesM.blockQuote,
@@ -456,7 +475,8 @@ class EditorToolbar extends StatelessWidget implements PreferredSizeWidget {
             isIncrease: false,
             iconTheme: iconTheme,
           ),
-        if (showDividers && isButtonGroupShown[4] && isButtonGroupShown[5]) _divider(),
+        if (showDividers && isButtonGroupShown[4] && isButtonGroupShown[5])
+          _divider(),
         if (showLink)
           LinkStyleButton(
             controller: controller,
